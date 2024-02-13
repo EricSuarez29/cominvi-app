@@ -1,0 +1,221 @@
+openapi: 3.0.3
+info:
+  title: Laravel
+  description: ''
+  version: 1.0.0
+servers:
+  -
+    url: 'http://localhost:8000'
+paths:
+  /api/productos:
+    get:
+      summary: ''
+      operationId: getApiProductos
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    -
+                      id: 1
+                      nombre: 'Samsung S22'
+                      precio_unitario: 15000
+                      categoria: Smartphones
+                    -
+                      id: 2
+                      nombre: 'Iphone 15 PRO MAX'
+                      precio_unitario: 25000
+                      categoria: Smartphones
+                    -
+                      id: 3
+                      nombre: 'Laravora Samsung 15kg'
+                      precio_unitario: 20000
+                      categoria: Smartphones
+                properties:
+                  data:
+                    type: array
+                    example:
+                      -
+                        id: 1
+                        nombre: 'Samsung S22'
+                        precio_unitario: 15000
+                        categoria: Smartphones
+                      -
+                        id: 2
+                        nombre: 'Iphone 15 PRO MAX'
+                        precio_unitario: 25000
+                        categoria: Smartphones
+                      -
+                        id: 3
+                        nombre: 'Laravora Samsung 15kg'
+                        precio_unitario: 20000
+                        categoria: Smartphones
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          example: 1
+                        nombre:
+                          type: string
+                          example: 'Samsung S22'
+                        precio_unitario:
+                          type: integer
+                          example: 15000
+                        categoria:
+                          type: string
+                          example: Smartphones
+      tags:
+        - Endpoints
+      security: []
+  /api/ordenes:
+    get:
+      summary: ''
+      operationId: getApiOrdenes
+      description: ''
+      parameters:
+        -
+          in: query
+          name: categoria
+          description: 'Permite filtrar las ordenes por categoría'
+          example: Smartphones
+          required: false
+          schema:
+            type: string
+            description: 'Permite filtrar las ordenes por categoría'
+            example: Smartphones
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    -
+                      id: 1
+                      precioUnitario: 100
+                      importeTotal: 400
+                      cantidad: 4
+                      productoId: 1
+                      nombre: 'Samsung S22'
+                      categoria: Smartphones
+                      fecha: '2024-02-13T06:18:15.000000Z'
+                    -
+                      id: 2
+                      precioUnitario: 30
+                      importeTotal: 120
+                      cantidad: 4
+                      productoId: 2
+                      nombre: 'Iphone 15 PRO MAX'
+                      categoria: Smartphones
+                      fecha: '2024-02-13T07:23:22.000000Z'
+                    -
+                      id: 3
+                      precioUnitario: 500
+                      importeTotal: 2500
+                      cantidad: 5
+                      productoId: 3
+                      nombre: 'Laravora Samsung 15kg'
+                      categoria: Smartphones
+                      fecha: '2024-02-13T14:30:00.000000Z'
+                properties:
+                  data:
+                    type: array
+                    example:
+                      -
+                        id: 1
+                        precioUnitario: 100
+                        importeTotal: 400
+                        cantidad: 4
+                        productoId: 1
+                        nombre: 'Samsung S22'
+                        categoria: Smartphones
+                        fecha: '2024-02-13T06:18:15.000000Z'
+                      -
+                        id: 2
+                        precioUnitario: 30
+                        importeTotal: 120
+                        cantidad: 4
+                        productoId: 2
+                        nombre: 'Iphone 15 PRO MAX'
+                        categoria: Smartphones
+                        fecha: '2024-02-13T07:23:22.000000Z'
+                      -
+                        id: 3
+                        precioUnitario: 500
+                        importeTotal: 2500
+                        cantidad: 5
+                        productoId: 3
+                        nombre: 'Laravora Samsung 15kg'
+                        categoria: Smartphones
+                        fecha: '2024-02-13T14:30:00.000000Z'
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          example: 1
+                        precioUnitario:
+                          type: integer
+                          example: 100
+                        importeTotal:
+                          type: integer
+                          example: 400
+                        cantidad:
+                          type: integer
+                          example: 4
+                        productoId:
+                          type: integer
+                          example: 1
+                        nombre:
+                          type: string
+                          example: 'Samsung S22'
+                        categoria:
+                          type: string
+                          example: Smartphones
+                        fecha:
+                          type: string
+                          example: '2024-02-13T06:18:15.000000Z'
+      tags:
+        - Endpoints
+      security: []
+    post:
+      summary: ''
+      operationId: postApiOrdenes
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                precio_unitario:
+                  type: number
+                  description: ''
+                  example: 100.0
+                cantidad:
+                  type: integer
+                  description: ''
+                  example: 5
+                producto_id:
+                  type: integer
+                  description: ''
+                  example: 2
+      security: []
+tags:
+  -
+    name: Endpoints
+    description: ''

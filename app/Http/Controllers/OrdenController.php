@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class OrdenController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * @queryParam categoria string Permite filtrar las ordenes por categoría Example: Smartphones
      */
     public function index(Request $request)
     {
@@ -24,7 +24,9 @@ class OrdenController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * @bodyParam precio_unitario number Example: 100.00
+     * @bodyParam cantidad integer Example: 5
+     * @bodyParam producto_id integer Example: 2
      */
     public function store(Request $request)
     {

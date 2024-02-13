@@ -13,6 +13,8 @@
                     <select @change="obtenerOrdenes()" x-model="filtros.categoria" class="form-select">
                         <option value="">Categorías</option>
                         <option value="Smartphones">Smartphones</option>
+                        <option value="Linea Blanca">Linea Blanca</option>
+                        <option value="Computo">Computo</option>
                     </select>
                 </div>
             </div>
@@ -35,6 +37,12 @@
                         <td x-text="new Date(orden.fecha).toLocaleDateString()"></td>
                     </tr>
                 </template>
+                <template x-if="total">
+                    <tr class="table-light">
+                        <td colspan="4">Gran Total</td>
+                        <td x-text="total"></td>
+                    </tr>
+                </template>
             </tbody>
         </table>
     </div>
@@ -43,6 +51,7 @@
             document.addEventListener('alpine:init', () => {
                 Alpine.data('ordenes', () => ({
                     data: [],
+                    total: 0,
                     filtros: {
                         categoria: ''
                     },
@@ -62,10 +71,11 @@
                                 }
                             });
 
-                            if (res.status < 200 && res.status >= 300) throw res
+                            if (res.status < 200 || res.status >= 300) throw res
                             const { data } = await res.json()
 
                             this.data = data
+                            this.total = data.reduce((carry, orden) => carry + orden.importeTotal, 0)
                         } catch (error) {
                             alert('No fue posible cargar las ordenes')
                         }

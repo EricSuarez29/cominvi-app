@@ -9,7 +9,8 @@
                 <form @submit.prevent="guardarOrden()" >
                     <div class="pb-3">
                         <label for="lbl-product">Producto</label>
-                        <select x-model="orden.productoId" id="" class="form-select" id="lbl-product">
+                        <select required x-model="orden.productoId" id="" class="form-select" id="lbl-product">
+                            <option value="">Selecione un producto</option>
                             <template x-for="product in productos">
                                 <option :value="product.id" x-text="product.nombre"></option>
                             </template>
@@ -70,8 +71,8 @@
                                     producto_id: this.orden.productoId
                                 })
                             })
-
-                            if (res.status < 200 && res.status >= 300) throw res
+                            console.log(res.status)
+                            if (res.status < 200 || res.status >= 300) throw res
 
                             window.location.href = '/'
                         } catch (error) {

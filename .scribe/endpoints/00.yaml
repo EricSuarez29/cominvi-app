@@ -1,0 +1,155 @@
+name: Endpoints
+description: ''
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: api/productos
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"data":[{"id":1,"nombre":"Samsung S22","precio_unitario":15000,"categoria":"Smartphones"},{"id":2,"nombre":"Iphone 15 PRO MAX","precio_unitario":25000,"categoria":"Smartphones"},{"id":3,"nombre":"Laravora Samsung 15kg","precio_unitario":20000,"categoria":"Smartphones"}]}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '59'
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: api/ordenes
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters:
+      categoria:
+        name: categoria
+        description: 'Permite filtrar las ordenes por categoría'
+        required: false
+        example: Smartphones
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        custom: []
+    cleanQueryParameters:
+      categoria: Smartphones
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"data":[{"id":1,"precioUnitario":100,"importeTotal":400,"cantidad":4,"productoId":1,"nombre":"Samsung S22","categoria":"Smartphones","fecha":"2024-02-13T06:18:15.000000Z"},{"id":2,"precioUnitario":30,"importeTotal":120,"cantidad":4,"productoId":2,"nombre":"Iphone 15 PRO MAX","categoria":"Smartphones","fecha":"2024-02-13T07:23:22.000000Z"},{"id":3,"precioUnitario":500,"importeTotal":2500,"cantidad":5,"productoId":3,"nombre":"Laravora Samsung 15kg","categoria":"Smartphones","fecha":"2024-02-13T14:30:00.000000Z"}]}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '58'
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/ordenes
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      precio_unitario:
+        name: precio_unitario
+        description: ''
+        required: false
+        example: 100.0
+        type: number
+        enumValues: []
+        exampleWasSpecified: true
+        custom: []
+      cantidad:
+        name: cantidad
+        description: ''
+        required: false
+        example: 5
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        custom: []
+      producto_id:
+        name: producto_id
+        description: ''
+        required: false
+        example: 2
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        custom: []
+    cleanBodyParameters:
+      precio_unitario: 100.0
+      cantidad: 5
+      producto_id: 2
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []

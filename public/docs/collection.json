@@ -1,0 +1,178 @@
+{
+    "variable": [
+        {
+            "id": "baseUrl",
+            "key": "baseUrl",
+            "type": "string",
+            "name": "string",
+            "value": "http:\/\/localhost:8000"
+        }
+    ],
+    "info": {
+        "name": "Laravel",
+        "_postman_id": "2968c6c6-f330-41dc-be67-41971a72f10e",
+        "description": "",
+        "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
+    },
+    "item": [
+        {
+            "name": "Endpoints",
+            "description": "",
+            "item": [
+                {
+                    "name": "GET api\/productos",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/productos",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/productos"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "59"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"data\":[{\"id\":1,\"nombre\":\"Samsung S22\",\"precio_unitario\":15000,\"categoria\":\"Smartphones\"},{\"id\":2,\"nombre\":\"Iphone 15 PRO MAX\",\"precio_unitario\":25000,\"categoria\":\"Smartphones\"},{\"id\":3,\"nombre\":\"Laravora Samsung 15kg\",\"precio_unitario\":20000,\"categoria\":\"Smartphones\"}]}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "GET api\/ordenes",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/ordenes",
+                            "query": [
+                                {
+                                    "key": "categoria",
+                                    "value": "Smartphones",
+                                    "description": "Permite filtrar las ordenes por categor\u00eda",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "{{baseUrl}}\/api\/ordenes?categoria=Smartphones"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "58"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"data\":[{\"id\":1,\"precioUnitario\":100,\"importeTotal\":400,\"cantidad\":4,\"productoId\":1,\"nombre\":\"Samsung S22\",\"categoria\":\"Smartphones\",\"fecha\":\"2024-02-13T06:18:15.000000Z\"},{\"id\":2,\"precioUnitario\":30,\"importeTotal\":120,\"cantidad\":4,\"productoId\":2,\"nombre\":\"Iphone 15 PRO MAX\",\"categoria\":\"Smartphones\",\"fecha\":\"2024-02-13T07:23:22.000000Z\"},{\"id\":3,\"precioUnitario\":500,\"importeTotal\":2500,\"cantidad\":5,\"productoId\":3,\"nombre\":\"Laravora Samsung 15kg\",\"categoria\":\"Smartphones\",\"fecha\":\"2024-02-13T14:30:00.000000Z\"}]}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "POST api\/ordenes",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/ordenes",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/ordenes"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"precio_unitario\":100,\"cantidad\":5,\"producto_id\":2}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        }
+    ],
+    "auth": {
+        "type": "noauth"
+    }
+}

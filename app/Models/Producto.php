@@ -10,5 +10,5 @@ class Producto extends Model
     use HasFactory;
     public $timestamps = false;
     
-    protected $fillable = ['nombre', 'precio_unitario', 'categoria'];
+    protected $fillable = ['nombre', 'categoria'];
 }
